@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Task 1</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        
+        <!--Displaying slack profile picture-->
+        <img src="https://ca.slack-edge.com/T05FFAA91JP-U05R4KYJEFQ-3f42d8b188d9-72" alt="Tori" data-testid="slackDisplayImage">
+
+         <!--Displaying slack username-->
+         <h1 data-testid="slackUserName">Tori</h1>
+        
+        <!--Displaying the day of the week-->
+        <div class="day">
+        <p id="day" data-testid="currentDayOfTheWeek"></p>
+        </div>
+	<script>
+		let date = new Date();
+		let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+		let day = days[date.getDay()];
+		
+		document.getElementById("day").innerHTML = day;
+		
+		setInterval(function() {
+			date = new Date();
+			day = days[date.getDay()];
+			
+			document.getElementById("day").innerHTML = day;
+		}, 1000);
+	</script>
+       
+        <!--Displaying the current UTC time-->
+        <div class="time">
+        <p id="time" data-testid="currentUTCTime"></p>
+        </div>
+	<script>
+		setInterval(function() {
+			let date = new Date();
+			let utc = Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(),
+				date.getUTCHours(), date.getUTCMinutes(), date.getUTCSeconds(), date.getUTCMilliseconds());
+			
+			document.getElementById("time").innerHTML = utc;
+		}, 1);
+	</script>
+       
+    <!--Displaying my track-->
+        <div class="track">
+        <p data-testid="myTrack">Frontend Track</p></div>
+        
+    <!--Displaying a github link for the task-->
+        <div class="github">
+        <p>Find my code <a href="https://github.com/Victoria0505/Victoria0505.github.io" data-testid="githubURL">here</a></div></p>
+    </body>
+</html>
